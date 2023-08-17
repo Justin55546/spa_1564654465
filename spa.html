@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>美食分享平台</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap');
+
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+
+    .fw-700 {
+      font-weight: 700;
+    }
+
+    .fw-500 {
+      font-weight: 500;
+    }
+
+    .fw-400 {
+      font-weight: 400;
+    }
+
+    .bg-cover {
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+    }
+
+    .carousel-caption {
+      background-color: rgba(0, 0, 0, 0.4);
+      padding: 15px;
+      border-radius: 15px;
+      box-shadow: 2px 2px 2px 2px #4c4b4b;
+    }
+
+    .s09_text{
+      z-index: 10;
+        background-color: rgba(0, 0, 0, 0.4);
+        margin: 15px;
+        padding: 15px;
+        color: white
+    }
+
+    @media screen and (max-width:768px) {
+
+      .s05_text,
+      .s07_text {
+        z-index: 10;
+        background-color: rgba(0, 0, 0, 0.4);
+        margin: 15px;
+        padding: 15px;
+        color: white
+      }
+
+      .s05_img {
+        right: 0;
+      }
+
+      .s07_img {
+        left: 0;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+  <!-- s01 -->
+  <section class="bg-secondary">
+    <div class="container">
+      <div class="text-end">
+        <a href="#"><i class="fa-brands fa-square-facebook
+                 text-white"></i></a>
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- s02選單 -->
+  <section class="bg-dark">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <i class="fa-solid fa-bowl-food"></i>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">首頁</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">關於我們</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  美食推薦
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">餐廳推薦</a></li>
+                  <li><a class="dropdown-item" href="#">甜點推薦</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="#">飲品推薦</a></li>
+                </ul>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <a href="#" class="btn btn-warning me-1" data-bs-toggle="modal" data-bs-target="#loginModal">登入</a>
+              <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#registerModal">註冊</a>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </section>
+
+  <!-- loginModal -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header text-bg-warning">
+          <h1 class="modal-title fs-5" id="loginModalLabel">會員登入</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb3">
+            <label for="form-label">帳號</label>
+            <input type="text" class="form-control">
+          </div>
+          <div class="mb3">
+            <label for="">密碼</label>
+            <input type="password" class="form-control">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="#" data-bs-toggle="modal" data-bs-target="#registerModal" class="me-auto">還沒有帳號去註冊</a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+          <button type="button" class="btn btn-primary">確認</button>
+        </div>
+      </div>
+      <!-- me-auto 在右邊推
+    ms-auto 在左邊推 -->
+    </div>
+  </div>
+  <!-- registerModal -->
+  <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header text-bg-success">
+          <h1 class="modal-title fs-5" id="registerModalLabel">會員註冊</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-6">
+              <h5>1.鐵路過去室內新技術不在收費方法發佈時間論文有什麼加入，
+                輕鬆寶貝整個，居住自行，出現聽說，後面建議大。</h5>
+              <h5>2.鐵路過去室內新技術不在收費方法發佈時間論文有什麼加入，
+                輕鬆寶貝整個，居住自行，出現聽說，後面建議大。</h5>
+              <h5>3.鐵路過去室內新技術不在收費方法發佈時間論文有什麼加入，
+                輕鬆寶貝整個，居住自行，出現聽說，後面建議大。</h5>
+              <h5>4.鐵路過去室內新技術不在收費方法發佈時間論文有什麼加入，
+                輕鬆寶貝整個，居住自行，出現聽說，後面建議大。</h5>
+              <h5>5.鐵路過去室內新技術不在收費方法發佈時間論文有什麼加入，
+                輕鬆寶貝整個，居住自行，出現聽說，後面建議大。</h5>
+              <h5>6.鐵路過去室內新技術不在收費方法發佈時間論文有什麼加入，
+                輕鬆寶貝整個，居住自行，出現聽說，後面建議大。</h5>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input">
+                <label for="" class="form-check-label">遵守以上所述</label>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="mb3">
+                <label for="form-label">帳號</label>
+                <input type="text" class="form-control">
+              </div>
+              <div class="mb3">
+                <label for="">密碼</label>
+                <input type="password" class="form-control">
+              </div>
+              <div class="mb3">
+                <label for="">確認密碼</label>
+                <input type="password" class="form-control">
+              </div>
+              <div class="mb3">
+                <label for="">信箱</label>
+                <input type="email" class="form-control">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal" class="me-auto">已有帳號去登入</a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+          <button type="button" class="btn btn-primary">確認</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- s03輪播效果 carousel-->
+  <section>
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+          aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+          aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
+          aria-label="Slide 4"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4"
+          aria-label="Slide 5"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item  bg-cover active" style="
+           background-image:url(images/hotpot01.avif); height: 420px;">
+          <div class="carousel-caption d-none d-md-block">
+            <h4 class="fw-700">廣告標題01-香噴噴火鍋</h4>
+            <p>又香又好吃</p>
+          </div>
+        </div>
+        <div class="carousel-item  bg-cover" style="background-image:url(images/bbq01.avif); 
+           height: 420px;">
+          <div class="carousel-caption d-none d-md-block">
+            <h4 class="fw-700">廣告標題02-火熱燒烤</h4>
+            <p>炭香可口，吮指回味</p>
+          </div>
+        </div>
+        <div class="carousel-item bg-cover" style="
+           background-image:url(images/sushi1.avif); height: 420px;">
+          <div class="carousel-caption d-none d-md-block">
+            <h4 class="fw-700">廣告標題03-美味壽司</h4>
+            <p>新鮮上桌，海味無窮</p>
+          </div>
+        </div>
+        <div class="carousel-item bg-cover" style="
+           background-image:url(images/hamburger.avif); height: 420px;">
+          <div class="carousel-caption d-none d-md-block">
+            <h4 class="fw-700">廣告標題04-美式漢堡</h4>
+            <p>熱情如火，美味漢堡</p>
+          </div>
+        </div>
+        <div class="carousel-item bg-cover" style="
+           background-image:url(images/friedchicken.avif); height: 420px;">
+          <div class="carousel-caption d-none d-md-block">
+            <h4 class="fw-700">廣告標題05-多汁炸雞</h4>
+            <p>現炸上桌，每口噴汁</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- s04 三大服務項目 01.美食互動 02.美食優惠  03.地方推廣-->
+  <section class="bg-info">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 text-center">
+          <i class="fa-regular fa-handshake fa-7x"></i>
+          <div class="d-none d-md-block">
+
+            <h2 class=" my-3 fw-700 text-white">美食分享平台</h2>
+            <p class="fw-300 text-white">會員可在平台內分享自己遇到的神級美食，藉由得到的
+              讚或留言獲得美食兌換金，好東西就要跟我們廣大的會員分享，也歡迎非會員參觀討論
+          </div>
+        </div>
+        <div class="col-md-4 text-center">
+          <i class="fa-solid fa-coins fa-7x"></i>
+          <div class="d-none d-md-block">
+            <h2 class=" my-3 fw-700 text-white">美食優惠第一線</h2>
+            <p class="fw-300 text-white">各家美食的優惠常常抓不到嗎，這個平台提供店家或各位民眾投稿自己
+              所得知的優惠消息，好康怎麼能自己獨享呢，快來分享吧
+          </div>
+        </div>
+        <div class="col-md-4 text-center">
+          <i class="fa-solid fa-building-ngo fa-7x"></i>
+          <div class="d-none d-md-block">
+            <h2 class=" my-3 fw-700 text-white">地方美食推廣</h2>
+            <p class="fw-300 text-white">各個政府所提供的地方美食清單，促進地方經濟發展，
+              每個地方一定都會有非常多的小吃
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- s05 服務精神 -->
+  <section style="position: relative;">
+    <div class="row .s05_text">
+      <div class="col-md-5 bg-cover s05_img" style="position: absolute;
+    top: 0;
+    bottom: 0;
+    background-image: url(images/eating.avif);
+    "></div>
+    </div>
+    <div class="container">
+      <div class="row justify-content-end">
+        <div class="col-md-7 s05_text">
+          <p>
+            好吃的東西就是要分享給廣大的民眾，我秉持著散播歡樂散播愛的心，
+            創立了這個美食分享平台
+
+          </p>
+          <a href="#" class="btn btn-outline-info">查看更多</a>
+          <div class="row my-3">
+            <div class="col-md-6">
+              <h3>好吃的早午餐。</h3>
+              <p>
+                好吃的早午餐開啟美好的一天，美好的一天從好吃的早午餐開始。
+
+              </p>
+            </div>
+            <div class="col-md-6">
+              <h3>好吃的甜點。</h3>
+              <p>
+                好吃的甜點讓心情都感到愉快許多，更有心情上班上課。
+
+
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- s06 部門介紹 -->
+  <section>
+    <div class="container">
+      <div class="display-3 text-center">美食平台部門介紹</div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="d-flex align-items-center">
+            <i class="fa-solid fa-palette fa-5x me-3"></i>
+
+            <div>
+              <h2>設計部門 夏xx</h2>
+              <p>
+                設計網頁上的各種圖案，各種美工相關負責人，精通使用ipad pro
+                來畫出各種可愛的圖形，有飼養海豹和小雞以及鴨子。
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="d-flex align-items-center">
+            <i class="fa-solid fa-blog fa-5x me-3 "></i>
+            <div>
+              <h2>資訊部門 楊xx</h2>
+              <p>負責網頁的維護以及架設，有飼養一隻貓咪，非常的可愛叫做熱狗剛過8歲生日，也非常熱愛尋
+                找好吃的東西，致力發展美食推廣
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="d-flex align-items-center">
+            <i class="fa-solid fa-utensils fa-5x me-3"></i>
+            <div>
+              <h2>吃貨部門 海x熱x</h2>
+              <p>
+                吃東西，沒錯就是吃東西，但他可是一隻可愛的海豹喔，
+                跟熱x擔任本平台的顏值擔當
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="d-flex align-items-center">
+            <i class="fa-solid fa-cat fa-5x me-auto"></i>
+            <div>
+              <h2>氣氛部門 熱x</h2>
+              <p>
+                負責喵喵叫，擔任本平台的吉祥物和顏職擔當，他非常的可愛，
+                最近剛過8歲生日。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+  <!-- s07 品牌價值介紹  -->
+  <section class="my-4" style="position: relative;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7 s07_text">
+          <dl class="row">
+            <h2>品牌價值介紹</h2>
+            <p>
+              品牌的價值決定在顧客的信任，而我們這個平台擁有非常廣大的
+              消費客群，不管是在公司學校都會使用本平台。
+            </p>
+            <dt class="col-sm-3">創立的原因</dt>
+            <dd class="col-sm-9">A description list is perfect for defining terms.</dd>
+
+            <dt class="col-sm-3">服務的客群</dt>
+            <dd class="col-sm-9">
+              <p>Definition for the term.</p>
+              <p>And some more placeholder definition text.</p>
+            </dd>
+
+            <dt class="col-sm-3">未來展望</dt>
+            <dd class="col-sm-9">This definition is short, so no extra paragraphs or anything.</dd>
+
+            <dt class="col-sm-3 text-truncate">Truncated term is truncated</dt>
+            <dd class="col-sm-9">This can be useful when space is tight. Adds an ellipsis at the end.</dd>
+
+            <dt class="col-sm-3">公司地址</dt>
+            <dd class="col-sm-9">
+              <dl class="row">
+                <dt class="col-sm-4">Nested definition list</dt>
+                <dd class="col-sm-8">I heard you like definition lists. Let me put a definition list inside your
+                  definition list.</dd>
+              </dl>
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-end">
+      <div class="col-md-5 bg-cover s07_img" style="
+        position:absolute;
+        background-image: url(images/drinks.avif);
+        top: 0;
+        bottom: 0;">
+      </div>
+    </div>
+  </section>
+  <!--  s08 地圖 詢問表單 -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3638.3312236604274!2d120.62325331056881!3d24.23019147009824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d1d68110173%3A0xf1a85cea689e4cac!2z5ZyL56uL5Lit56eR5a-m6amX6auY57Sa5Lit5a24!5e0!3m2!1szh-TW!2stw!4v1692235550889!5m2!1szh-TW!2stw"
+          width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      <div class="col-md-6">
+      <div class="mb-3">
+        <label for="" class="form-label">姓名</label>
+        <input type="phone" class="form-control">
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">電話</label>
+        <input type="phone" class="form-control">
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">信箱</label>
+        <input type="email" class="form-control">
+      </div>
+      <div class="mb-3">
+        <label for="" class="form-label">人數</label>
+        <input type="number" class="form-control">
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+        <label class="form-check-label" for="flexRadioDefault1">
+          去冰
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+        <label class="form-check-label" for="flexRadioDefault2">
+          少冰
+        </label>
+      </div>
+      <div class="text-end my-3">
+        <a href="#" class="btn btn-secondary">取消</a>
+        <a href="#" class="btn btn-primary">確認</a>
+      </div>
+    </div>
+  </section>
+
+  <!--  s09 職缺徵人訊息 -->
+  <section>
+    <div class="row">
+      <div class="col-md-6" style="background-image: url(images/drinking.avif);">
+        <div class="row">
+          <div class="col-md-9 s09_text m-4 p-3">
+            <small class="badge text-bg-danger my-3">加入我們</small>
+            <h2>市場調查員數名</h2>
+            <p class="fw-700">滿足一生國外運輸政府並非法國根本已有破壞暴力網頁課程，初音都要殺手，
+              女朋友調查，請教哥哥具有自從推坑王用戶名各類檢測導致，大小幾天頻道，媒
+              體報名浪漫本頁程式文章通訊事實上壓縮，禁止當前型號很快傷心強大消費電子
+              商務幾年輕輕給你，會議藥物空調作出事務，環節飯。
+            </p>
+            <a href="#" class="btn btn-outline-danger">加入我們</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 bg-cover" style="background-image: url(images/drinking.avif);">
+        <small class="badge text-bg-danger my-3">加入我們</small>
+            <h2>市場調查員數名</h2>
+            <p class="fw-700">滿足一生國外運輸政府並非法國根本已有破壞暴力網頁課程，初音都要殺手，
+              女朋友調查，請教哥哥具有自從推坑王用戶名各類檢測導致，大小幾天頻道，媒
+              體報名浪漫本頁程式文章通訊事實上壓縮，禁止當前型號很快傷心強大消費電子
+              商務幾年輕輕給你，會議藥物空調作出事務，環節飯。
+            </p>
+            <a href="#" class="btn btn-outline-danger">加入我們</a>
+      </div>
+    </div>
+  </section>
+
+  <!--  s10 版權宣告 友善連結 -->
+  <section>
+    <div class="container">
+      <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link disabled" aria-current="page" href="#">Power By 全端班製作 20230808</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="#">友站01</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="#">友站02</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active">友站03</a>
+      </li>
+    </ul>
+  </div>
+  </section>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
